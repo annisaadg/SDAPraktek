@@ -1,5 +1,5 @@
 /*
-    File         	: tree.c
+    File         	: tree.h
     Description    	: Header ADT Binary Tree
     Author    		: Kelompok A6
     Date/Version   	: 8 April 2022/1.0
@@ -34,6 +34,21 @@ typedef struct{
 	address root;
 }Tree;
 
-
+void initTree(Tree *T);
+/*Menginisiasi root dari sebuah tree dengan 
+root = null.
+*/
+address createNode(int id, char* nama);
+address insertNode(Tree *T, int id,char* nama);
+address minValueNode(address node);
+address deleteNode(Tree *T, int id);
+address searchNode(Tree *T, int id);
+void insertPegawai(Tree *T, int id, char* nama);
+void deletePegawai(Tree *T, int id);
+void searchPegawai(Tree T, int id);
+void preOrder(address root);
+void inOrder(address root);
+void cekEmpty(Tree *T);
+void postOrder(address root);
 
 #endif

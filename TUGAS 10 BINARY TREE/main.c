@@ -19,38 +19,14 @@ int main(int argc, char *argv[]) {
  	do{
  		switch(pilih){
   		case 1:
-   			printf("Masukkan Nama Pegawai : ");
-   			getchar();
-   			gets(nama);
-   			printf("Masukkan ID Pegawai : ");
-   			scanf("%d",&id);
-   			insertPegawai(&T,id,nama);
-   			printf("\nDAFTAR PEGAWAI:\n");
+   			printf("\nDAFTAR PEGAWAI :\n");
+   			cekEmpty(&T);
    			inOrder(Root(T));
    			system("pause");
    			showMenu();
    			break;
   		case 2:
-  			printf("\nDAFTAR PEGAWAI:\n");
-   			inOrder(Root(T));
-   			printf("\n");
-  		 	printf("Masukkan ID Pegawai yang Akan Dihapus: ");
-   			scanf("%d",&id);
-   			deletePegawai(&T, id);
-   			printf("\nDAFTAR PEGAWAI SEKARANG:\n");
-   			inOrder(Root(T));
-   			system("pause");
-   			showMenu();
-   			break;
-   		case 3:
-   			printf("Masukkan ID Pegawai yang Akan Dicari: ");
-   			scanf("%d",&id);
-   			searchPegawai(T, id);
-   			system("pause");
-   			showMenu();
-   			break;
-   		case 4:
-   			insertPegawai(&T,45,"Dhika Putra");
+  			insertPegawai(&T,45,"Dhika Putra");
  			insertPegawai(&T,87,"Chandra Diva");
  			insertPegawai(&T,65,"Abdullah Ahugrah");
  			insertPegawai(&T,39,"Bayu Virani");
@@ -64,16 +40,34 @@ int main(int argc, char *argv[]) {
 	 		insertPegawai(&T,64,"Hilman Ardiansyah");
  			insertPegawai(&T,11,"Izhar Subekti");
  			insertPegawai(&T,41,"Mustofa Sabri");
- 			printf("\nDAFTAR PEGAWAI SEKARANG:\n");
-			inOrder(Root(T));
 			system("pause");
    			showMenu();
    			break;
-   		case 5:
-   			printf("\nDAFTAR PEGAWAI :\n");
-   			inOrder(Root(T));
+   		case 3:
+   			printf("Masukkan ID Pegawai yang Akan Dicari: ");
+   			scanf("%d",&id);
+   			searchPegawai(T, id);
    			system("pause");
    			showMenu();
+   			break;
+   		case 4:
+   			printf("\n");
+  		 	printf("Masukkan ID Pegawai yang Akan Dihapus: ");
+   			scanf("%d",&id);
+   			deletePegawai(&T, id);
+   			system("pause");
+   			showMenu();
+   			break;
+   		case 5:
+   			printf("Masukkan Nama Pegawai : ");
+   			getchar();
+   			gets(nama);
+   			printf("Masukkan ID Pegawai : ");
+   			scanf("%d",&id);
+   			insertPegawai(&T,id,nama);
+   			system("pause");
+   			showMenu();
+   			break;
  		}
 	 }while(pilih<6);
  	return 0;
@@ -83,12 +77,12 @@ void showMenu() {
 	home:
 	system("cls");
  	printf("============= PROGRAM DATA PEGAWAI =============\n");
- 	printf("1] Menambah Data Pegawai Baru\n");
- 	printf("2] Menghapus Data Pegawai berdasarkan ID\n");
+ 	printf("1] Menampilkan Seluruh Data Pegawai\n");
+ 	printf("2] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n");
  	printf("3] Mencari Data Pegawai berdasarkan ID dan \n");
  	printf("   Menampikan Data Pegawainya\n");
- 	printf("4] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n");
- 	printf("5] Menampilkan Seluruh Data Pegawai\n");
+ 	printf("4] Menghapus Data Pegawai berdasarkan ID\n");
+ 	printf("5] Menambah Data Pegawai Baru \n");
  	printf("6] Quit\n");
  	printf("================================================\n");
  	printf("Masukkan Pilihanmu : ");

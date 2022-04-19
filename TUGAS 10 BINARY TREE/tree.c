@@ -13,7 +13,6 @@ void initTree(Tree *T){
 	Root(*T) = Nil;
 }
 
-
 address createNode(int id, char* nama){
 	address P;
 	P =(address) malloc(sizeof(ElmTree));
@@ -159,15 +158,18 @@ void preOrder(address root){
 
 
 void inOrder(address root){
-	if (root != Nil && Nama(root) != Nil){
+	if (root != Nil){
 		inOrder(Left(root));
 		printf("Nama : %s\nID : %d\n\n", Nama(root),Id(root));
 		inOrder(Right(root));
-	}else{
-		printf("Data Pegawai Kosong\n");
 	}
 }
 
+void cekEmpty(Tree *T){
+	if(Root(*T) == Nil){
+		printf("Data Pegawai Kosong\n");
+	}
+}
 
 void postOrder(address root){
 	if (root != Nil && Nama(root) != Nil){
