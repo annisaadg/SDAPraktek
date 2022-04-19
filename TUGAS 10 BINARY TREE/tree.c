@@ -152,6 +152,8 @@ void preOrder(address root){
 		printf("Nama : %s\nID : %d\n\n", Nama(root),Id(root));
 		preOrder(Left(root));
 		preOrder(Right(root));
+	}else{
+		printf("Data Pegawai Kosong\n");
 	}
 }
 
@@ -161,6 +163,8 @@ void inOrder(address root){
 		inOrder(Left(root));
 		printf("Nama : %s\nID : %d\n\n", Nama(root),Id(root));
 		inOrder(Right(root));
+	}else{
+		printf("Data Pegawai Kosong\n");
 	}
 }
 
@@ -170,5 +174,7 @@ void postOrder(address root){
 		inOrder(Left(root));
 		inOrder(Right(root));
 		printf("Nama : %s\nID : %d\n\n", Nama(root),Id(root));
+	}else{
+		printf("Data Pegawai Kosong\n");
 	}
 }

@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
  	initTree(&T);
  
  	showMenu();
+	
  	char nama[20];
  	int id;
  	do{
@@ -24,7 +25,7 @@ int main(int argc, char *argv[]) {
    			gets(nama);
    			printf("Masukkan ID Pegawai : ");
    			scanf("%d",&id);
-   			insertPegawai(&T,id,nama);
+   			insertNode(&T,id,nama);
    			printf("\nDAFTAR PEGAWAI:\n");
    			inOrder(Root(T));
    			system("pause");
@@ -50,32 +51,27 @@ int main(int argc, char *argv[]) {
    			showMenu();
    			break;
    		case 4:
-   			insertPegawai(&T,45,"Dhika Putra");
- 			insertPegawai(&T,87,"Chandra Diva");
- 			insertPegawai(&T,65,"Abdullah Ahugrah");
- 			insertPegawai(&T,39,"Bayu Virani");
- 			insertPegawai(&T,92,"Chaerul Ardina");
- 			insertPegawai(&T,88,"Fikri Syabantika");
- 			insertPegawai(&T,73,"Christian Dayanti");
- 			insertPegawai(&T,58,"Haris Anjani");
- 			insertPegawai(&T,47,"Aprian Amalina");
- 			insertPegawai(&T,62,"Doni Assodiqin");
- 			insertPegawai(&T,59,"Marvel Tilasnuari");
-	 		insertPegawai(&T,64,"Hilman Ardiansyah");
- 			insertPegawai(&T,11,"Izhar Subekti");
- 			insertPegawai(&T,41,"Mustofa Sabri");
+   			insertNode(&T,45,"Dhika Putra");
+ 			insertNode(&T,87,"Chandra Diva");
+ 			insertNode(&T,65,"Abdullah Ahugrah");
+ 			insertNode(&T,39,"Bayu Virani");
+ 			insertNode(&T,92,"Chaerul Ardina");
+ 			insertNode(&T,88,"Fikri Syabantika");
+ 			insertNode(&T,73,"Christian Dayanti");
+ 			insertNode(&T,58,"Haris Anjani");
+ 			insertNode(&T,47,"Aprian Amalina");
+ 			insertNode(&T,62,"Doni Assodiqin");
+ 			insertNode(&T,59,"Marvel Tilasnuari");
+	 		insertNode(&T,64,"Hilman Ardiansyah");
+ 			insertNode(&T,11,"Izhar Subekti");
+ 			insertNode(&T,41,"Mustofa Sabri");
  			printf("\nDAFTAR PEGAWAI SEKARANG:\n");
 			inOrder(Root(T));
 			system("pause");
    			showMenu();
    			break;
-   		case 5:
-   			printf("\nDAFTAR PEGAWAI :\n");
-   			inOrder(Root(T));
-   			system("pause");
-   			showMenu();
  		}
-	 }while(pilih<6);
+	 }while(pilih<5);
  	return 0;
 }
 
@@ -83,19 +79,15 @@ void showMenu() {
 	home:
 	system("cls");
  	printf("============= PROGRAM DATA PEGAWAI =============\n");
- 	printf("1] Menambah Data Pegawai Baru\n");
- 	printf("2] Menghapus Data Pegawai berdasarkan ID\n");
+ 	printf("1] Menambah Data Pegawai Baru dan Menampilkan\n");
+ 	printf("   Seluruh Data Pegawai\n");
+ 	printf("2] Menghapus Data Pegawai berdasarkan ID dan\n");
+ 	printf("   Menampikan Seluruh Data Pegawai\n");
  	printf("3] Mencari Data Pegawai berdasarkan ID dan \n");
- 	printf("   Menampikan Data Pegawainya\n");
+ 	printf("   Menampikan Data Pegawai\n");
  	printf("4] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n");
- 	printf("5] Menampilkan Seluruh Data Pegawai\n");
- 	printf("6] Quit\n");
+ 	printf("5] Quit\n");
  	printf("================================================\n");
  	printf("Masukkan Pilihanmu : ");
  	scanf("%d",&pilih);
- 	if(pilih<1 || pilih>6){
- 		printf("Mohon maaf opsi menu salah\n");
- 		system("pause");
- 		goto home;
-	 }
 }
