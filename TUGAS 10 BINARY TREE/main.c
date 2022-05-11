@@ -19,14 +19,50 @@ int main(int argc, char *argv[]) {
  	do{
  		switch(pilih){
   		case 1:
-   			printf("\nDAFTAR PEGAWAI :\n");
-   			cekEmpty(&T);
-   			inOrder(Root(T));
+   			printf("Masukkan Nama Pegawai : ");
+   			getchar();
+   			gets(nama);
+   			printf("Masukkan ID Pegawai : ");
+   			scanf("%d",&id);
+   			insertPegawai(&T,id,nama);
+   			printf("\n");
    			system("pause");
    			showMenu();
    			break;
   		case 2:
-  			insertPegawai(&T,45,"Dhika Putra");
+  			if((Root(T)) != Nil){
+  				printf("\nDAFTAR PEGAWAI:\n\n");
+	   			printPegawai(Root(T));
+	   			printf("\n");
+	  		 	printf("Masukkan ID Pegawai yang Akan Dihapus: ");
+	   			scanf("%d",&id);
+	   			deletePegawai(&T, id);
+			}
+			else{
+				printf("\nData kosong, tidak ada data yang bisa dihapus!\n");
+			}
+   			printf("\n");
+   			system("pause");
+   			showMenu();
+   			break;
+   		case 3:
+   			printf("Masukkan ID Pegawai yang Akan Dicari: ");
+   			scanf("%d",&id);
+   			searchPegawai(T, id);
+   			printf("\n");
+   			system("pause");
+   			showMenu();
+   			break;
+   		case 4:
+   			printf("\nDAFTAR PEGAWAI:\n\n");
+   			printPegawai(Root(T));
+   			printf("\n");
+   			system("pause");
+   			showMenu();
+   			break;
+   		case 5:
+			printf("\nData pegawai berhasil dimasukan\n");
+   			insertPegawai(&T,45,"Dhika Putra");
  			insertPegawai(&T,87,"Chandra Diva");
  			insertPegawai(&T,65,"Abdullah Ahugrah");
  			insertPegawai(&T,39,"Bayu Virani");
@@ -40,56 +76,64 @@ int main(int argc, char *argv[]) {
 	 		insertPegawai(&T,64,"Hilman Ardiansyah");
  			insertPegawai(&T,11,"Izhar Subekti");
  			insertPegawai(&T,41,"Mustofa Sabri");
-			system("pause");
-   			showMenu();
-   			break;
-   		case 3:
-   			printf("Masukkan ID Pegawai yang Akan Dicari: ");
-   			scanf("%d",&id);
-   			searchPegawai(T, id);
+			printf("\n");
    			system("pause");
    			showMenu();
    			break;
-   		case 4:
+   		case 6:
+   			deleteTree(&T);
+   			printf("\nSeluruh data pegawai berhasil dihapus\n\n");
+   			system("pause");
+   			showMenu();
+   			break;
+   		case 7:
+   			printf("\nDAFTAR PEGAWAI:\n\n");
+   			if(Root(T) == Nil){
+			printf("Data pegawai Kosong!\n\n");
+			}
+			else{
+				preOrder(Root(T));
+			}
    			printf("\n");
-  		 	printf("Masukkan ID Pegawai yang Akan Dihapus: ");
-   			scanf("%d",&id);
-   			deletePegawai(&T, id);
    			system("pause");
    			showMenu();
    			break;
-   		case 5:
-   			printf("Masukkan Nama Pegawai : ");
-   			getchar();
-   			gets(nama);
-   			printf("Masukkan ID Pegawai : ");
-   			scanf("%d",&id);
-   			insertPegawai(&T,id,nama);
+   		case 8:
+   			printf("\nDAFTAR PEGAWAI:\n\n");
+   			if(Root(T) == Nil){
+			printf("Data pegawai Kosong!\n\n");
+			}
+			else{
+				postOrder(Root(T));
+			}
+   			printf("\n");
    			system("pause");
    			showMenu();
    			break;
+		default:
+			printf("\nMohon maaf opsi menu salah. Silahkan ulangi lagi\n\n");
+			system("pause");
+			showMenu();
+			break;
  		}
-	 }while(pilih<6);
+		
+	 }while(pilih!=9);
  	return 0;
 }
 
 void showMenu() {
-	home:
 	system("cls");
  	printf("============= PROGRAM DATA PEGAWAI =============\n");
- 	printf("1] Menampilkan Seluruh Data Pegawai\n");
- 	printf("2] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n");
- 	printf("3] Mencari Data Pegawai berdasarkan ID dan \n");
- 	printf("   Menampikan Data Pegawainya\n");
- 	printf("4] Menghapus Data Pegawai berdasarkan ID\n");
- 	printf("5] Menambah Data Pegawai Baru \n");
- 	printf("6] Quit\n");
+ 	printf("1] Menambah Data Pegawai Baru \n\n");
+ 	printf("2] Menghapus Data Pegawai berdasarkan ID\n\n");
+ 	printf("3] Mencari Data Pegawai berdasarkan ID\n\n");
+ 	printf("4] Menampikan Seluruh Data Pegawai (inOrder)\n\n");
+ 	printf("5] Menambah 14 Data Pegawai Dari Deskripsi Kasus\n\n");
+ 	printf("6] Hapus Seluruh Data Pegawai\n\n");
+ 	printf("7] Menampikan Seluruh Data Pegawai (preOrder)\n\n");
+ 	printf("8] Menampikan Seluruh Data Pegawai (postOrder)\n\n");
+ 	printf("9] Quit\n");
  	printf("================================================\n");
  	printf("Masukkan Pilihanmu : ");
  	scanf("%d",&pilih);
- 	if(pilih<1 || pilih>6){
- 		printf("Mohon maaf opsi menu salah\n");
- 		system("pause");
- 		goto home;
-	 }
 }
