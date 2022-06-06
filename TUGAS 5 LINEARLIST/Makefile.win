@@ -1,15 +1,15 @@
-# Project: Project2
+# Project: Project1
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = KalkulatorTree.o MainKalkulator.o StackForChar.o StackForTree.o BinaryTree.o
-LINKOBJ  = KalkulatorTree.o MainKalkulator.o StackForChar.o StackForTree.o BinaryTree.o
+OBJ      = mahasiswa.o mainmahasiswa.o
+LINKOBJ  = mahasiswa.o mainmahasiswa.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = Kalkulator.exe
+BIN      = "SDA PRAKTEK MAHASISWA.exe"
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
 RM       = rm.exe -f
@@ -24,17 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-KalkulatorTree.o: KalkulatorTree.c
-	$(CC) -c KalkulatorTree.c -o KalkulatorTree.o $(CFLAGS)
+mahasiswa.o: mahasiswa.c
+	$(CC) -c mahasiswa.c -o mahasiswa.o $(CFLAGS)
 
-MainKalkulator.o: MainKalkulator.c
-	$(CC) -c MainKalkulator.c -o MainKalkulator.o $(CFLAGS)
-
-StackForChar.o: StackForChar.c
-	$(CC) -c StackForChar.c -o StackForChar.o $(CFLAGS)
-
-StackForTree.o: StackForTree.c
-	$(CC) -c StackForTree.c -o StackForTree.o $(CFLAGS)
-
-BinaryTree.o: BinaryTree.c
-	$(CC) -c BinaryTree.c -o BinaryTree.o $(CFLAGS)
+mainmahasiswa.o: mainmahasiswa.c
+	$(CC) -c mainmahasiswa.c -o mainmahasiswa.o $(CFLAGS)

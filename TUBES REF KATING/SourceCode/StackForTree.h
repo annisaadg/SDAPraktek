@@ -1,13 +1,3 @@
-/** Nama File : StackForTree.h
- *  Deskripsi : File header ADT StackTree
- *  Oleh      : Muhamad Aryadipura
- *  Tanggal   : 24 Juli 2021
- * 
- *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
- *  Tanggal   : 25 Juli 2021
- */
-
-
 #ifndef STACK_TREE_H
 #define STACK_TREE_H
 

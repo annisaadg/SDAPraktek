@@ -1,12 +1,3 @@
-/** Nama File : KalkulatorTree.c
- *  Deskripsi : File Body ADT Kalkulator
- *  Oleh      : Fiora Berliana Putri
- *  Tanggal   : 24 Juli 2021
- * 
- *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
- *  Tanggal   : 25 Juli 2021 dan 31 Juli 2021
- */
-
 #include "KalkulatorTree.h"
 
 /* Membuat sebuah ekspresi tree dari ekspresi postfix yang sudah didapatkan. 
@@ -22,13 +13,14 @@ BinTree BuildExpressionTree(infotypeTree postfix){
 	infotypeTree tempOperator, tempStr;
 	
 	NewStackTree(&StackTree);
-	printf("panjang postfix : %d\n", strlen(postfix));
+	printf("PPPPPPPPpanjang postfix : %d\n", strlen(postfix));
 	while(i < strlen(postfix)){
 		//untuk operand
 		if (!isOperator(postfix[i]) && postfix[i] != ' '){
 			j = 0;
 			tempStr[j] = postfix[i];
-			printf("\npostfix bukan operator, postfix tdk kosong. POSTFIX (tempSTR[%d] : %c)\n", j, tempStr[j]);
+			printf("\nCASE BUKAN OPERATOR BUKAN KOSONG\n");
+			printf("postfix bukan operator, postfix tdk kosong. POSTFIX (tempSTR[%d] : %c)\n", j, tempStr[j]);
 			while(!isOperator(postfix[i+1]) && postfix[i+1] != ' '){
 				tempStr[j+1] = postfix[i+1];
 				printf("postfix+1 bukan operator, postfix+1 tdk kosong. POSTFIX (tempSTR[%d] : %c)\n", j+1, tempStr[j+1]);
@@ -37,29 +29,31 @@ BinTree BuildExpressionTree(infotypeTree postfix){
 			}
 			CreateNodeTree(&ExpressionTree, tempStr);
 			for(k = 0; k < strlen(tempStr); k++) {
+				printf("tempstr[%d]: %c\n",k,tempStr[k]);
 				tempStr[k] = ' ';
-				printf("memasukkan postfix ke array baru, tempStr[%d]: %c\n",k,tempStr[k]);
+				printf("memasukkan postfix ke array baru, tempStr[%d]: (%c)\n",k,tempStr[k]);
 			}
 			AddStackTree(&StackTree, ExpressionTree);
 			printf("Add tree\n");
 		}
 		//untuk kasus operasi -
 		else if(postfix[i] == '-' && isOperator(postfix[i-4])) { 
-		tempOperator[0] = postfix[i];
-		printf("\npostfix[%d]=%c, postfix[%d]:%c = operator\n",i,postfix[i],i-4,postfix[i-4]);
-		CreateNodeTree(&ExpressionTree, tempOperator);
-		printf("create node tree\n");
+			tempOperator[0] = postfix[i];
+			printf("\nCASE -, 1-4= OPERATOR\n");
+			printf("postfix[%d]=%c, postfix[%d]:%c = operator\n",i,postfix[i],i-4,postfix[i-4]);
+			CreateNodeTree(&ExpressionTree, tempOperator);
+			printf("create node tree\n");
 		
-		Right = Info(Top(StackTree));
-		DellStackTree(&StackTree, &Delete);
+			Right = Info(Top(StackTree));
+			DellStackTree(&StackTree, &Delete);
 							 
-		Left = Info(Top(StackTree));
-		DellStackTree(&StackTree, &Delete);
+			Left = Info(Top(StackTree));
+			DellStackTree(&StackTree, &Delete);
 			
-		CreateTree(tempOperator, Left, Right, &ExpressionTree);
-		printf("create tree \n");
+			CreateTree(tempOperator, Left, Right, &ExpressionTree);
+			printf("create tree \n");
 			
-		AddStackTree(&StackTree, ExpressionTree); 
+			AddStackTree(&StackTree, ExpressionTree); 
 		} 
 		//untuk kasus operasi -
 		else if((postfix[i]=='-' && postfix[i-1]==' ' && postfix[i+1]!=' ' && postfix[i+2]!=' ' && !isOperator(postfix[i+2])) || 
@@ -69,8 +63,9 @@ BinTree BuildExpressionTree(infotypeTree postfix){
 				(postfix[i]=='-' && postfix[i-1]==' ' && postfix[i+1]!=' ' && isOperator(postfix[i+2])) ||
 				(postfix[i]=='-' && postfix[i-1]!=' ' && isOperator(postfix[i+1]) && isOperator(postfix[i+2]) )) { 
 			tempOperator[0] = postfix[i];
+			printf("\nCASE -- PUSING \n");
 			CreateNodeTree(&ExpressionTree, tempOperator);
-			printf("\noperasi '-', create node tree, tempOperator[0] : %c\n",tempOperator[0]);
+			printf("operasi '-', create node tree, tempOperator[0] : %c\n",tempOperator[0]);
 		
 			Right = Info(Top(StackTree));
 			DellStackTree(&StackTree, &Delete);
@@ -87,7 +82,8 @@ BinTree BuildExpressionTree(infotypeTree postfix){
 		else if(postfix[i] != ' ') { 
 			tempOperator[0] = postfix[i];
 			CreateNodeTree(&ExpressionTree, tempOperator);
-			printf("\noperasi ' ', create node tree, tempOperator[0] : %c\n",tempOperator[0]);
+			printf("\nCASE POSTFIX OPERATOR\n");
+			printf("operasi ' ', create node tree, tempOperator[0] : %c\n",tempOperator[0]);
 		
 			Right = Info(Top(StackTree));
 			DellStackTree(&StackTree, &Delete);

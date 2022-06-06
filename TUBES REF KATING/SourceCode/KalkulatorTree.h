@@ -1,12 +1,3 @@
-/** Nama File : KalkulatorTree.h
- *  Deskripsi : File Header ADT Kalkulator
- *  Oleh      : Fiora Berliana Putri
- *  Tanggal   : 24 Juli 2021
- * 
- *  Modifikasi: Lamda Richo Vanjaya Sumaryadi
- *  Tanggal   : 25 Juli 2021
- */
-
 #ifndef KALKULATOR_H
 #define KALKULATOR_H
 
@@ -18,7 +9,6 @@
 
 #include "StackForTree.h"
 #include "BinaryTree.h"
-#include "BangunDatar.h"
 #include <math.h>
 
 typedef char String[50];
